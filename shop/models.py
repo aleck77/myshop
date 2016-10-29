@@ -33,6 +33,8 @@ class Product(models.Model):
 
     class Meta:
         ordering = ['name']
+        verbose_name = 'товар'
+        verbose_name_plural = 'товары'
         index_together = [
             ['id', 'slug']
         ]
