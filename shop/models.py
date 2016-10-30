@@ -1,6 +1,6 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
-# from __future__ import unicode_literals
+from __future__ import unicode_literals
 from django.db import models
 from django.core.urlresolvers import reverse
 
@@ -14,11 +14,12 @@ class Category(models.Model):
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
     def get_absolute_url(self):
         return reverse('shop:ProductListByCategory', args=[self.slug])
+
 
 # Модель продукта
 class Product(models.Model):
@@ -41,7 +42,7 @@ class Product(models.Model):
             ['id', 'slug']
         ]
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
     def get_absolute_url(self):
